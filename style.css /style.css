@@ -115,3 +115,53 @@ body {
 h1, h2, h3 {
   color: var(--heading-color);
 }
+/* ===== THEME PALETTES (rubric requires 5 vars each) ===== */
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #e6e6e6;
+  --bg-color: #f7f7f7;
+  --font-color: #111111;
+  --heading-color: #1e3a8a; /* blue-ish */
+}
+
+[data-theme="dark"] {
+  --primary-color: #0f172a;
+  --secondary-color: #1f2937;
+  --bg-color: #0b1220;
+  --font-color: #e5e7eb;
+  --heading-color: #22d3ee; /* cyan */
+}
+
+/* ===== APPLY THE VARIABLES ===== */
+body {
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  margin: 2rem;
+}
+
+h1, h2, h3 {
+  color: var(--heading-color);
+}
+
+main {
+  background: var(--primary-color);
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 8px;
+  max-width: 800px;
+}
+
+button {
+  background: var(--secondary-color);
+  color: var(--font-color);
+  border: 1px solid var(--heading-color);
+  padding: 8px 12px;
+  margin: 6px 6px 0 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.05);
+}
