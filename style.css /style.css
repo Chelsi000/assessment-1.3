@@ -86,3 +86,32 @@ aside {
   flex: 1;
   margin-left: 20px;
 }
+/* ===============================
+   Theme Variables
+   =============================== */
+
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #cccccc;
+  --bg-color: #f0f0f0;
+  --font-color: #000000;
+  --heading-color: #3333ff;
+}
+
+[data-theme="dark"] {
+  --primary-color: #111111;
+  --secondary-color: #333333;
+  --bg-color: #000000;
+  --font-color: #ffffff;
+  --heading-color: #00ffff;
+}
+
+/* Apply theme variables to layout */
+body {
+  background-color: var(--bg-color);
+  color: var(--font-color);
+}
+
+h1, h2, h3 {
+  color: var(--heading-color);
+}
