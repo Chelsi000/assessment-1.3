@@ -1,92 +1,58 @@
-/* Assignment 1.3 – Commit 1 */
-:root {
-  --base-font-color: rgb(131,148,150);
-  --secondary-font-color: rgb(88,110,117);
-  --emphasised-font: rgb(147,161,161);
-
-  --c-background-color: rgb(0,43,54);
-  --c-background-highlights: rgb(7,54,66);
-
-  --c-yellow: rgb(181,137,0);
-  --c-orange: rgb(203,75,22);
-  --c-red: rgb(220,50,47);
-  --c-magenta: rgb(211,54,130);
-  --c-violet: rgb(108,113,196);
-  --c-blue: rgb(38,139,210);
-  --c-cyan: rgb(42,161,152);
-  --c-green: rgb(133,153,0);
+/* ==== Article Styling ==== */
+article {
+  padding: 20px;
 }
 
-/* ===== Body & Layout Styles ===== */
-body {
-  background-color: var(--c-background-color);
-  color: var(--base-font-color);
-  font-family: 'Open Sans Condensed', sans-serif;
-  max-width: 800px;
-  margin: auto;
-  padding: 0 16px 24px;
+article h1, 
+article h2, 
+article h3, 
+article h4, 
+article h5, 
+article h6 {
+  padding-top: 50px; /* Spec: 50px top padding for all headings */
 }
 
-/* ===== Header & Footer ===== */
-header, footer {
-  background-color: var(--c-background-highlights);
-  text-align: center;
-  font-size: 150%;
-  color: var(--c-yellow);
-}
-
-header h1 {
-  color: var(--c-yellow);
-}
-
-/* ===== Navigation ===== */
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 6rem;
-  padding: 0;
-}
-
-nav a {
+/* Links in article: magenta, hover orange */
+article a {
+  color: var(--c-magenta);
   text-decoration: none;
-  color: var(--c-blue);
+}
+article a:hover {
+  color: var(--c-orange);
 }
 
-/* ===== Article Styles ===== */
-article h2 {
-  font-weight: 700;
-  color: var(--c-violet);
-}
-
-article h3 {
+/* Borders around each subsection in the article */
+article section {
   border: 3px solid var(--c-cyan);
-  padding: 10px 12px;
-  margin: 22px 0 10px;
+  padding: 10px;
+  margin-bottom: 20px;
 }
 
-article h3 + p {
-  border: 3px solid var(--c-cyan);
-  border-top: 0;
-  padding: 12px;
-  margin-top: 0;
-}
-
-/* ===== Aside (Related Links) ===== */
-aside h2 {
-  color: var(--c-yellow);
+/* ==== Aside Styling ==== */
+aside {
+  color: var(--c-green); /* Spec: all text in aside = green */
+  padding: 20px;
 }
 
 aside a {
-  color: var(--c-red);
+  color: var(--c-red); /* Spec: links in aside = red */
+  text-decoration: none;
+}
+aside a:hover {
+  color: var(--c-blue); /* Spec: hover = blue */
 }
 
-aside li:nth-child(even) a {
-  color: var(--c-blue);
+/* ==== Layout for article + aside ==== */
+/* Spec: aside to the right of article */
+main {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Article twice as wide as aside */
+  gap: 24px;
+}
+article {
+  grid-column: 1;
+}
+aside {
+  grid-column: 2;
 }
 
-/* ===== Footer ===== */
-footer {
-  padding: 10px;
-  font-size: 80%;
-}
