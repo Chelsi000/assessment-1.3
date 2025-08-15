@@ -1,58 +1,196 @@
-/* ==== Article Styling ==== */
+/* =========================
+   Color variables (Solarized)
+   ========================= */
+:root {
+  --base-font-color: rgb(131,148,150);
+  --secondary-font-color: rgb(88,110,117);
+  --emphasised-font: rgb(147,161,161);
+
+  --c-background-color: rgb(0, 43, 54);
+  --c-background-highlights: rgb(7, 54, 66);
+
+  --c-yellow:  rgb(181,137,  0);
+  --c-orange:  rgb(203, 75, 22);
+  --c-red:     rgb(220, 50, 47);
+  --c-magenta: rgb(211, 54,130);
+  --c-violet:  rgb(108,113,196);
+  --c-blue:    rgb( 38,139,210);
+  --c-cyan:    rgb( 42,161,152);
+  --c-green:   rgb(133,153,  0);
+}
+
+/* =========================
+   Page base & layout
+   ========================= */
+body {
+  background-color: var(--c-background-color);
+  color: var(--base-font-color);
+  font-family: 'Open Sans Condensed', sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px 24px;
+  line-height: 1.45;
+}
+
+/* Header & Footer */
+header,
+footer {
+  background-color: var(--c-background-highlights);
+  color: var(--base-font-color);
+  text-align: center;
+  font-size: 150%;
+  padding: 14px 0;
+  margin: 0 -16px; /* stretch to page edges inside max-width */
+}
+
+header h1 {
+  margin: 0;
+  color: var(--c-yellow);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   Navigation bar
+   ========================= */
+nav {
+  margin: 18px 0 8px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;   /* center items across full width */
+  gap: 48px;                 /* even spacing between links */
+}
+
+nav a {
+  color: var(--c-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover,
+nav a:focus {
+  color: var(--c-orange);
+  text-decoration: underline;
+}
+
+/* =========================
+   Main two-column layout
+   ========================= */
+main {
+  /* article left, related (aside) right */
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 40px;
+}
+
+/* Stack on smaller screens */
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   Article styles
+   ========================= */
 article {
-  padding: 20px;
+  /* keep same tone as page; prevents white blocks */
+  background-color: var(--c-background-color);
 }
 
-article h1, 
-article h2, 
-article h3, 
-article h4, 
-article h5, 
-article h6 {
-  padding-top: 50px; /* Spec: 50px top padding for all headings */
+article h2,
+article h3 {
+  color: var(--emphasised-font);
+  padding-top: 50px; /* rubric: all headings in article have 50px top padding */
+  margin-top: 0;
 }
 
-/* Links in article: magenta, hover orange */
+/* Links inside the article: magenta, hover orange */
 article a {
   color: var(--c-magenta);
   text-decoration: none;
+  font-weight: 600;
 }
-article a:hover {
+article a:hover,
+article a:focus {
   color: var(--c-orange);
+  text-decoration: underline;
 }
 
-/* Borders around each subsection in the article */
-article section {
+/* Cyan border around each subsection (heading + content) */
+article h3 {
   border: 3px solid var(--c-cyan);
-  padding: 10px;
-  margin-bottom: 20px;
+  padding: 12px;
+  margin: 24px 0 0;
+}
+article h3 + p {
+  border: 3px solid var(--c-cyan);
+  border-top: 0;           /* fuse with the h3 border */
+  padding: 12px;
+  margin: 0 0 24px;
 }
 
-/* ==== Aside Styling ==== */
+/* =========================
+   Aside (Related links)
+   ========================= */
 aside {
-  color: var(--c-green); /* Spec: all text in aside = green */
-  padding: 20px;
+  color: var(--c-green); /* text in aside is green */
+}
+
+aside h2,
+aside h3 {
+  color: var(--c-yellow);
+  padding-top: 50px;
+  margin-top: 0;
 }
 
 aside a {
-  color: var(--c-red); /* Spec: links in aside = red */
+  color: var(--c-red);   /* links in aside are red */
   text-decoration: none;
+  font-weight: 600;
 }
-aside a:hover {
-  color: var(--c-blue); /* Spec: hover = blue */
+aside a:hover,
+aside a:focus {
+  color: var(--c-blue);  /* hover/active blue */
+  text-decoration: underline;
 }
 
-/* ==== Layout for article + aside ==== */
-/* Spec: aside to the right of article */
-main {
-  display: grid;
-  grid-template-columns: 2fr 1fr; /* Article twice as wide as aside */
-  gap: 24px;
+/* =========================
+   Search form (minor tidy)
+   ========================= */
+input[type="search"] {
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--secondary-font-color);
+  background: #062c36;
+  color: var(--base-font-color);
 }
-article {
-  grid-column: 1;
+input[type="submit"] {
+  padding: 4px 10px;
+  border: 1px solid var(--c-cyan);
+  background: transparent;
+  color: var(--base-font-color);
+  border-radius: 4px;
+  cursor: pointer;
 }
-aside {
-  grid-column: 2;
+input[type="submit"]:hover {
+  border-color: var(--c-orange);
+  color: var(--c-orange);
 }
+
+/* =========================
+   Footer fine print
+   ========================= */
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--secondary-font-color);
+}
+
 
