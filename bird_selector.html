@@ -1,26 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <title>Bird Image Selector</title>
- <link rel="stylesheet" href="bird_style.css">
-</head>
-<body>
-  <main>
-    <h1>Select a Bird</h1>
-    <img id="bird-img" src="http://www.outgrabe.net/bird00.jpg" alt="Bird Image" width="300">
-    <p id="bird-desc">Pardalote by fir0002 (CC-by-NC)</p>
+  <head>
+    <meta charset="utf-8" />
+    <title>Bird Image Selector</title>
+    <link rel="stylesheet" href="bird_style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Select a Bird</h1>
+    </header>
 
-    <div>
-      <button onclick="changeBird(0)">Pardalote</button>
-      <button onclick="changeBird(1)">Purple Swamp Hen</button>
-      <button onclick="changeBird(2)">White-headed Stilt</button>
-      <button onclick="changeBird(3)">Inland Thornbill</button>
-      <button onclick="changeBird(4)">Rose Robin</button>
-    </div>
+    <main>
+      <figure class="viewer">
+        <img
+          id="bird-img"
+          src="http://www.outgrabe.net/bird00.jpg"
+          alt="Pardalote by fir0002 (CC-by-NC)"
+          width="300"
+          height="200"
+        />
+        <figcaption>
+          <p id="bird-desc" aria-live="polite">
+            Pardalote by fir0002 (CC-by-NC)
+          </p>
+        </figcaption>
+      </figure>
 
-    <button onclick="toggleTheme()">Toggle Theme</button>
-  </main>
-  <script src="script.js"></script>
-</body>
+      <div class="buttons">
+        <button type="button" onclick="changeBird(0)">Pardalote</button>
+        <button type="button" onclick="changeBird(1)">Purple Swamp Hen</button>
+        <button type="button" onclick="changeBird(2)">White-headed Stilt</button>
+        <button type="button" onclick="changeBird(3)">Inland Thornbill</button>
+        <button type="button" onclick="changeBird(4)">Rose Robin</button>
+      </div>
+
+      <div class="theme">
+        <button type="button" onclick="toggleTheme()">Toggle Theme</button>
+      </div>
+    </main>
+
+    <footer>
+      <small>Images © respective authors • CC licenses noted</small>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
